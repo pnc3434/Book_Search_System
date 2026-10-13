@@ -1,0 +1,32 @@
+/* Общие стили проекта «Система книжных отзывов». */
+
+body {
+    background-color: #f8f9fa;
+}
+
+/* Карточка книги: собственное оформление поверх Bootstrap */
+.book-card {
+    border-left: 4px solid #0d6efd;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.book-card:hover {
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+/* Логотип в навигации (если добавим) */
+.site-logo {
+    max-height: 32px;
+}
+
+body {
+    background-color: #f0f4f8;
+}
+
+h1.display-4 {
+    color: #0d6efd;
+}
+
+.container {
+    max-width: 960px;
+}

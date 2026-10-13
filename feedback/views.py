@@ -1,41 +1,26 @@
 # View-функции отзывов.
 
-from django.http import HttpResponse
+from django.shortcuts import render
 
-from homepage.views import page   # общий каркас страницы
-from storage import load_books    # загрузка книг из JSON
+from storage import load_books
 
 
 def reviews(request):
-    # Список всех отзывов по всем книгам.
+    # Собираем все отзывы по всем книгам в плоский список.
     books_list = load_books("data/books.json")
 
-    items = ""
-    count = 0
+    reviews_list = []
     for book in books_list:
         for review in book.reviews:
-            count += 1
-            items += (
-                f'<li class="list-group-item">'
-                f"<strong>{book.title}</strong>: "
-                f"{review.user} — {review.rating}★ "
-                f"«{review.text}» "
-                f'<a href="/books/{book.id}/" '
-                f'class="btn btn-sm btn-outline-primary">'
-                f"к книге</a>"
-                f"</li>"
-            )
+            reviews_list.append({
+                "book_id": book.id,
+                "book_title": book.title,
+                "user": review.user,
+                "text": review.text,
+                "rating": review.rating,
+            })
 
-    if count == 0:
-        items = (
-            '<li class="list-group-item">'
-            "Отзывов пока нет."
-            "</li>"
-        )
-
-    content = f"""
-    <h1>Отзывы</h1>
-    <p>Всего отзывов: {count}</p>
-    <ul class="list-group">{items}</ul>
-    """
-    return HttpResponse(page("Отзывы — Система книжных отзывов", content))
+    context = {
+        "reviews": reviews_list,
+    }
+    return render(request, "feedback/review_list.html", context)

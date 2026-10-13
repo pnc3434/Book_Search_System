@@ -1,10 +1,11 @@
 # Маршруты главной страницы.
 
-from django.urls import path  # функция для описания маршрутов
+from django.urls import path
 
-from . import views  # импорт views из текущего приложения
+from . import views
+
+app_name = "homepage"  # пространство имён приложения
 
 urlpatterns = [
-    # Пустой путь "" в приложении соответствует корню,
     path("", views.index, name="index"),
 ]

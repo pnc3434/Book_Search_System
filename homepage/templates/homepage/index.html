@@ -1,0 +1,14 @@
+{% extends "base.html" %}  {# наследуем базовый шаблон #}
+
+{% block title %}Главная — Система книжных отзывов{% endblock %}
+
+{% block content %}
+    <h1 class="display-4">Система книжных отзывов</h1>
+    <p class="lead">Каталог книг с отзывами и оценками.</p>
+
+    <p>Основные разделы:</p>
+    <a href="{% url 'catalog:books' %}"
+       class="btn btn-primary me-2">Книги</a>
+    <a href="{% url 'feedback:reviews' %}"
+       class="btn btn-secondary">Отзывы</a>
+{% endblock %}

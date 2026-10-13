@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Отзывы — Система книжных отзывов{% endblock %}
+
+{% block content %}
+    <h1>Отзывы</h1>
+    <p>Всего отзывов: {{ reviews|length }}</p>
+
+    <ul class="list-group">
+        {% for review in reviews %}
+            <li class="list-group-item">
+                <strong>{{ review.book_title }}</strong>:
+                {{ review.user }} — {{ review.rating }}★
+                «{{ review.text }}»
+                <a href="{% url 'catalog:book_detail' review.book_id %}"
+                   class="btn btn-sm btn-outline-primary ms-2">
+                    к книге
+                </a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Отзывов пока нет.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

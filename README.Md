@@ -79,4 +79,71 @@ pytest
 - Список избранного хранится как список `id` книг.
 - Функции работы с коллекциями (`books.py`, `reviews.py`, `favorites.py`) остаются обычными функциями.
 
+## Веб-интерфейс (Django)
+
+Проект дополнен веб-интерфейсом на Django 5.2.
+Консольная версия (`main.py`) сохранена и продолжает работать.
+
+### Запуск веб-версии
+
+    python manage.py migrate    # один раз
+    python manage.py runserver
+
+Открыть в браузере: http://127.0.0.1:8000/
+
+### Страницы
+
+| URL | Назначение |
+|---|---|
+| `/` | Главная страница |
+| `/books/` | Список книг |
+| `/books/<id>/` | Карточка книги с отзывами |
+| `/reviews/` | Все отзывы |
+| `/admin/` | Админ-зона Django |
+
+### Структура Django
+
+- `bookreview/` — настройки Django-проекта;
+- `homepage/` — главная страница и общий каркас `page()`;
+- `catalog/` — книги (список, карточка);
+- `feedback/` — отзывы.
+
+Данные загружаются из JSON-файлов через `storage.py`.
+Сущности `Book`, `Review`, `User` из `models/` используются напрямую.
+Django ORM и база данных будут подключены на следующих практических работах.
+
+## Django-шаблоны (ПР6)
+
+Веб-интерфейс переведён с формирования HTML в Python на Django Template Language.
+
+### Структура шаблонов
+
+- `templates/base.html` — базовый шаблон;
+- `templates/includes/navigation.html` — навигация;
+- `homepage/templates/homepage/index.html` — главная;
+- `homepage/templates/homepage/404.html` — страница 404;
+- `catalog/templates/catalog/book_list.html` — список книг;
+- `catalog/templates/catalog/book_detail.html` — карточка книги;
+- `catalog/templates/catalog/includes/book_card.html` — карточка (include);
+- `feedback/templates/feedback/review_list.html` — список отзывов.
+
+### Статические файлы
+
+- `homepage/static/homepage/css/style.css` — стили;
+- `homepage/static/homepage/js/main.js` — JavaScript;
+- `homepage/static/homepage/img/logo.png` — логотип (если добавлен).
+
+### Использовано
+
+- `{% extends %}` и `{% block %}` — наследование;
+- `{% include %}` — повторно используемые фрагменты;
+- `{% for %}` / `{% empty %}` — циклы;
+- `{% if %}` — условия;
+- `{% url %}` — именованные маршруты (с пространствами имён);
+- фильтры `|length`, `|default`;
+- `{% load static %}` и `{% static %}` — статика.
+
+Функция `page()` удалена. Предметная область, JSON-хранилище и консольная версия сохранены.
+Django ORM, база данных и формы — темы следующих практических работ.
+
 

@@ -1,0 +1,14 @@
+<li class="list-group-item book-card">
+    <h5 class="mb-1">
+        {{ book.title|default:"Без названия" }}
+    </h5>
+    <p class="mb-1">
+        Автор: {{ book.author }}<br>
+        Жанр: {{ book.genre }}<br>
+        Рейтинг: {{ book.rating }}
+    </p>
+    <a href="{% url 'catalog:book_detail' book.id %}"
+       class="btn btn-sm btn-outline-primary">
+        Подробнее
+    </a>
+</li>

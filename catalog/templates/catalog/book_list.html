@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Книги — Система книжных отзывов{% endblock %}
+
+{% block content %}
+    <h1>Книги</h1>
+    <p>Всего книг: {{ books|length }}</p>
+
+    <ul class="list-group">
+        {% for book in books %}
+            {% include "catalog/includes/book_card.html" %}
+        {% empty %}
+            <li class="list-group-item">Книги не найдены.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

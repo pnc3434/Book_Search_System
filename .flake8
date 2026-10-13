@@ -6,5 +6,5 @@ exclude =
     .venv,
     .pytest_cache,
     */migrations/*
-max-line-length = 79
+max-line-length = 92
 extend-ignore = F401

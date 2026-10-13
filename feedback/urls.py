@@ -4,7 +4,8 @@ from django.urls import path
 
 from . import views
 
+app_name = "feedback"  # пространство имён приложения
+
 urlpatterns = [
-    # /reviews/ — список отзывов
     path("", views.reviews, name="reviews"),
 ]
