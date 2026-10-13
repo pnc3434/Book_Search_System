@@ -1,5 +1,6 @@
 from datetime import date
 
+
 # Запросить у пользователя целое число с повторением при ошибке
 def input_int(prompt: str) -> int:
     while True:
@@ -7,6 +8,7 @@ def input_int(prompt: str) -> int:
             return int(input(prompt))
         except ValueError:
             print("Ошибка: введите целое число.")
+
 
 # Запросить оценку
 def input_rating(prompt: str) -> int:
@@ -16,15 +18,15 @@ def input_rating(prompt: str) -> int:
             return value
         print("Ошибка: оценка должна быть от 1 до 5.")
 
+
 # Запросить дату
 def input_date(prompt: str) -> date:
     while True:
         try:
-            return date.fromisoformat(
-                input(prompt).replace(".", "-")
-            )
+            return date.fromisoformat(input(prompt).replace(".", "-"))
         except ValueError:
             print("Ошибка: введите дату в формате ДД.ММ.ГГГГ.")
+
 
 # Запросить непустую строку
 def input_non_empty(prompt: str) -> str:

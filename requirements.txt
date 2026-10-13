@@ -1,2 +1,7 @@
 pytest>=8.0
 flake8>=7.0
+black
+isort
+mypy
+coverage
+Django==5.2.*

@@ -4,7 +4,7 @@ from typing import List
 class Review:
 
     def __init__(self, user: str, text: str, rating: int) -> None:
-    #  Создать объект отзыва.
+        #  Создать объект отзыва.
         if not 1 <= rating <= 5:
             raise ValueError("Оценка должна быть от 1 до 5")
         self.user = user
@@ -25,7 +25,7 @@ class Review:
         )
 
     def to_data(self) -> dict:
-    # Преобразовать объект в словарь (для сохранения в JSON)
+        # Преобразовать объект в словарь (для сохранения в JSON)
         return {
             "user": self.user,
             "text": self.text,

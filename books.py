@@ -3,9 +3,7 @@ from typing import List, Optional
 from models.book import Book
 
 
-def add_book(
-    books: List[Book], title: str, author: str, genre: str
-) -> Book:
+def add_book(books: List[Book], title: str, author: str, genre: str) -> Book:
     # Создать новую книгу и добавить её в коллекцию
     new_id = max((book.id for book in books), default=0) + 1
     book = Book(new_id, title, author, genre)

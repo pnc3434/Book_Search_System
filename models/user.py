@@ -1,5 +1,6 @@
 from typing import List
 
+
 class User:
 
     def __init__(self, user_id: int, name: str) -> None:
