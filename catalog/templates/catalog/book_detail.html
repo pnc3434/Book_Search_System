@@ -24,9 +24,9 @@
 
         <h4>Отзывы</h4>
         <ul class="list-group">
-            {% for review in book.reviews %}
+            {% for review in reviews %}
                 <li class="list-group-item">
-                    <strong>{{ review.user }}</strong>
+                    <strong>{{ review.user_name }}</strong>
                     — {{ review.rating }}★:
                     {{ review.text }}
                 </li>

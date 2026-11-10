@@ -9,4 +9,5 @@ app_name = "catalog"  # пространство имён приложения
 urlpatterns = [
     path("", views.books, name="books"),
     path("<int:book_id>/", views.book_detail, name="book_detail"),
+    path("search/", views.book_search, name="book_search"),
 ]
